@@ -1,0 +1,45 @@
+﻿@model IEnumerable<EmlakProject.Models.HouseModel>
+<h2 align="center">Emlak</h2>
+
+
+<div style="position: relative;text-align: left; display: flex; align-items: left;">
+	<img src="~/pictures/home1.jpg" alt="" style="width:100%;">
+	<!--<textarea name="searchPhrase" id="searchPhrase" style="vertical-align: bottom;background:white; width: 100%; height:60px;border: 1px solid #ddd;border-radius: 7px;padding: 7px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); position: absolute;top: 85%;left: 50%;transform: translate(-50%, -50%);">
+		Enter Address or Code...
+	</textarea>-->
+	<!--<img src="~/pictures/search.png" alt="" style="background:white; position: absolute;top: 85%;left: 63%;transform: translate(-50%, -50%);">-->
+</div>
+<h4 align="left" style="margin-top:25px">Most visited</h4>     
+
+<!--<div style="background: white; width: 100%;flex-direction: row;display: flex; margin-top: 10px">
+	<div style="background:white; width: 33%;border: 1px solid #ddd;border-radius: 5px;padding: 7px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);margin-right:10px;">
+		<img style="background: white; " src="~/pictures/1.jfif"/>
+		<h4>$220000</h4>
+		<p>Erzurum mah. yeni Ankara sk. 11/8</p>
+		@Html.ActionLink("Visit" , "HouseDetails", "Home")
+	</div>
+	<div style="background:white; width: 33%;border: 1px solid #ddd;border-radius: 5px;padding: 7px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);margin-right:10px;">
+		<img style="background: white; " src="~/pictures/2.jfif"/>
+		<h4>$240000</h4>
+		<p>Ziraat, Shtç Ömer Halısdemır Blv 28/B</p>
+		@Html.ActionLink("Visit" , "HouseDetails", "Home")
+	</div>
+	<div style="background:white; width: 33%;border: 1px solid #ddd;border-radius: 5px;padding: 7px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+		<img style="background: white; " src="~/pictures/3.jfif"/>
+		<h4>$235000</h4>
+		<p>Kavacık Subayevleri, Sht. Makblue Sk.52/A</p>
+		@Html.ActionLink("Visit" , "HouseDetails", "Home")
+	</div>
+</div>-->
+<div style="background: white; width: 100%;flex-direction: row;display: flex; margin-top: 25px; overflow-x:auto;">
+@foreach (var item in Model) {
+   <div style="background:white; width: 33%;border: 1px solid #ddd;border-radius: 5px;padding: 7px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);margin-right:10px;">
+		<img style="background: white; " src="~/pictures/@Html.DisplayFor(modelItem => item.houseMainImg)"/>
+		<h4>$@Html.DisplayFor(modelItem => item.housePrice)</h4>
+		<h5>@Html.DisplayFor(modelItem => item.houseAddress)</h5>
+		<h5>@Html.DisplayFor(modelItem => item.houseType)</h5>
+		@Html.ActionLink("Details" , "Details_", "Home" , new { houseId = item.houseId }, null)
+	</div>
+}
+
+</div>

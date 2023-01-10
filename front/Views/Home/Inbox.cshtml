@@ -1,0 +1,31 @@
+﻿@model IEnumerable<EmlakProject.Models.MessageModel>
+
+@{
+    ViewBag.Title = "Inbox";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Inbox</h2>
+@using (Html.BeginForm("SearchForName","Home")) 
+{
+<table class="table">
+@foreach (var item in Model) {
+    <tr>
+		<td>
+			<div style="background: white; width: 100%;flex-direction: column;display: flex; margin-top: 25px;align-items:center">
+				<div style="background:white; width: 33%;border: 1px solid #ddd;border-radius: 5px;padding: 7px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+				    <h4 style="text-align:center"> @Html.DisplayFor(modelItem => item.msgTitle) </h4>
+					<p>From @Html.DisplayFor(modelItem => item.customerName)</p>
+					<p>Date @Html.DisplayFor(modelItem => item.date)</p>
+					<p>Time @Html.DisplayFor(modelItem => item.time)</p>
+					<p> @Html.DisplayFor(modelItem => item.msgContent)</p>
+					@Html.ActionLink("Reply" , "Reply", "Home" , new { msgId = item.msgId }, null)
+				</div>
+			</div>
+        </td>
+    </tr>
+}
+
+</table>
+}
+

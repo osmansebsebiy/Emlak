@@ -1,0 +1,165 @@
+﻿@model EmlakProject.Models.HouseModel
+
+@{
+    ViewBag.Title = "Create New";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add New House</h2>
+
+
+@using (Html.BeginForm("ProcessCreate","Home", FormMethod.Post, new { enctype = "multipart/form-data" })) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        
+		 <div hidden class="form-group">
+            @Html.LabelFor(model => model.houseId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.houseId, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.houseCode, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.houseCode, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.houseCode, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.houseAddress, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.houseAddress, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.houseAddress, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.housePrice, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.housePrice, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.housePrice, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.houseBuiltDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.houseBuiltDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.houseBuiltDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.houseHeating, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.houseHeating, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.houseHeating, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.houseConditioning, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.houseConditioning, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.houseConditioning, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.houseGarage, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.houseGarage, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.houseGarage, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+		 <div class="form-group" style="display: none;">
+            @Html.LabelFor(model => model.houseVisitCount, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.houseVisitCount, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.houseGarage, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.houseMainImg, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+				<input type="file" name="mainFile" multiple="multiple" accept="image/png, image/jpeg, image/jfif" />
+				@Html.ValidationMessageFor(model => model.houseMainImg)
+            </div>
+        </div>
+
+		 <div class="form-group">
+            @Html.LabelFor(model => model.houseImg1, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+				<input type="file" name="file1" multiple="multiple" accept="image/png, image/jpeg, image/jfif" />
+				@Html.ValidationMessageFor(model => model.houseImg1)
+            </div>
+        </div>
+
+		 <div class="form-group">
+            @Html.LabelFor(model => model.houseImg2, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+				<input type="file" name="file2" multiple="multiple" accept="image/png, image/jpeg, image/jfif"/>
+				@Html.ValidationMessageFor(model => model.houseImg2)
+            </div>
+        </div>
+
+		 <div class="form-group">
+            @Html.LabelFor(model => model.houseImg3, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+				<input type="file" name="file3" multiple="multiple" accept="image/png, image/jpeg, image/jfif"/>
+				@Html.ValidationMessageFor(model => model.houseImg3)
+            </div>
+        </div>
+
+		 <div class="form-group">
+            @Html.LabelFor(model => model.houseImg4, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+				<input type="file" name="file4" multiple="multiple" accept="image/png, image/jpeg, image/jfif"/>
+				@Html.ValidationMessageFor(model => model.houseImg4)
+            </div>
+        </div>
+
+        <div class="form-group">
+		@{
+		   var items = new SelectList(new[]
+						   {
+							   new SelectListItem {Text = "Sale", Value = "Sale"},
+							   new SelectListItem {Text = "Rent", Value = "Rent"},
+						   }, "Text", "Value");
+		}
+            @Html.LabelFor(model => model.houseType, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+				@Html.DropDownListFor(x => x.houseType, @items)
+                @Html.ValidationMessageFor(model => model.houseType, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+		 <div class="form-group">
+			 <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default"/>
+			</div>
+        </div>
+    </div>
+		
+       
+}
+
+<div>
+    @Html.ActionLink("Home", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+	
+}
+
+</script>

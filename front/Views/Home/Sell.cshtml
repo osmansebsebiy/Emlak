@@ -1,0 +1,91 @@
+﻿@model IEnumerable<EmlakProject.Models.HouseModel>
+
+@{
+    ViewBag.Title = "Houses for Sale";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Houses for Sale</h2>
+
+<table class="table">
+    <!--<tr>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.houseCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.houseAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.housePrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.houseBuiltDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.houseHeating)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.houseConditioning)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.houseGarage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.houseVisitCount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.houseMainImg)
+        </th>
+    </tr>-->
+
+@foreach (var item in Model) {
+    <tr>
+      <!--  <td>
+            @Html.DisplayFor(modelItem => item.houseCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.houseAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.housePrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.houseBuiltDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.houseHeating)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.houseConditioning)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.houseGarage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.houseVisitCount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.houseMainImg)
+        </td>
+       
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>-->
+		<td>
+			<div style="background: white; width: 100%;flex-direction: column;display: flex; margin-top: 25px;align-items:center">
+				<h4> @Html.DisplayFor(modelItem => item.houseCode) </h4>
+				<div style="background:white; width: 33%;border: 1px solid #ddd;border-radius: 5px;padding: 7px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+					<img style="background: white; " src="~/pictures/@Html.DisplayFor(modelItem => item.houseMainImg)"/>
+					<h4>$@Html.DisplayFor(modelItem => item.housePrice)</h4>
+					<p> @Html.DisplayFor(modelItem => item.houseAddress)</p>
+					@Html.ActionLink("Details" , "Details_", "Home" , new { houseId = item.houseId }, null)
+				</div>
+			</div>
+        </td>
+    </tr>
+}
+
+</table>

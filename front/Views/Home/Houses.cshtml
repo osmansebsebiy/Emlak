@@ -1,0 +1,32 @@
+﻿@model IEnumerable<EmlakProject.Models.HouseModel>
+
+@{
+    ViewBag.Title = "My Houses";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Houses for Rent</h2>
+
+<p style="text-align:center">
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+@foreach (var item in Model) {
+    <tr>
+		<td>
+			<div style="background: white; width: 100%;flex-direction: column;display: flex; margin-top: 25px;align-items:center">
+				<h4> @Html.DisplayFor(modelItem => item.houseCode) </h4>
+				<div style="background:white; width: 33%;border: 1px solid #ddd;border-radius: 5px;padding: 7px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+					<img style="background: white; " src="~/pictures/@Html.DisplayFor(modelItem => item.houseMainImg)"/>
+					<h4>$@Html.DisplayFor(modelItem => item.housePrice)</h4>
+					<p> @Html.DisplayFor(modelItem => item.houseAddress)</p>
+					@Html.ActionLink("Edit"    , "Edit"    , "Home" , new { houseId = item.houseId }, null) |
+					@Html.ActionLink("Details" , "Details_", "Home" , new { houseId = item.houseId }, null) |
+					@Html.ActionLink("Delete"  , "Delete"  , "Home" , new { houseId = item.houseId }, null)
+				</div>
+			</div>
+        </td>
+    </tr>
+}
+
+</table>

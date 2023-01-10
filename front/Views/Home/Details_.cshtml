@@ -1,0 +1,130 @@
+﻿@model EmlakProject.Models.HouseModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+h1 {
+  background-color: green;
+}
+div {
+  
+}
+div.first {
+	float: left;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	column-gap: 20px;
+}
+div.second {
+    float: right;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	column-gap: 20px;
+}
+div.box {
+  background: #EEE;
+  height: 100px;
+  width: 600px;
+}
+
+div.div1 {
+  background: #999;
+  float: left;
+  height: 100%;
+  width: auto;
+}
+
+div.div2 {
+  background: #666;
+  height: 100%;
+  width: 100%;
+}
+
+div.clear {
+  clear: both;
+  height: 1px;
+  overflow: hidden;
+  font-size: 0pt;
+  margin-top: -1px;
+}
+div.polaroid {
+  width: 100%;
+  background-color: red;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+}
+
+div.container {
+  text-align: center;
+  padding: 10px 20px;
+}
+img {
+	margin-bottom: 20px;
+	margin-right: 20px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+    padding: 5px;
+}
+img.main {
+	max-width: 100%;
+    height: auto;
+}
+</style>
+
+<h2>Details Page....</h2>
+
+<div style="background: white; width: 100%;flex-direction: row;display: flex; margin-top: 25px">
+	<div style="background: white; width: 50%;">
+	    <img src="~/pictures/@Html.DisplayFor(model => model.houseImg1)"/>
+		<img src="~/pictures/@Html.DisplayFor(model => model.houseImg2)"/>
+		<img src="~/pictures/@Html.DisplayFor(model => model.houseImg3)"/>
+		<img src="~/pictures/@Html.DisplayFor(model => model.houseImg4)"/>
+	</div>
+	<div style="background:white; width: 50%;">
+		<div style="border: 1px solid #ddd;border-radius: 5px;padding: 7px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+			<img style="background: white; " src="~/pictures/@Html.DisplayFor(model => model.houseMainImg)"/>
+			<h4>@Html.DisplayFor(model => model.houseCode)</h4>
+			<h4>$@Html.DisplayFor(model => model.housePrice)</h4>
+			<h5>@Html.DisplayFor(model => model.houseAddress)</h5>
+			<h5>@Html.DisplayFor(model => model.houseType)<? if (@Html.DisplayFor(model => model.houseType) == "R") echo 'For rent';  else echo 'For sale';?></h5>
+		</div>
+		<!--<input style="width: 50%; height : 50px;background: #888; margin-top :18px; border: 1px solid #ddd;border-radius: 15px;padding: 5px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" 
+			   type = "button" value = " Contact Agent"/>-->
+		<div style="margin-top:25px;">
+			@Html.ActionLink("Contact Agent" , "ContactAgent", "Home" , new { vendorId = Model.vendorId }, null)
+		</div>
+		<div style="flex-direction: row;display: flex; margin-top:25px;display: flex; align-items: center;">
+			<img style="border: 0px solid #ddd;" src="~/pictures/calendar.png"/>
+			<p>Built in @Html.DisplayFor(model => model.houseBuiltDate)</p>
+		</div>
+		<div style="flex-direction: row;display: flex; margin-top:15px;display: flex; align-items: center;">
+			<img style="border: 0px solid #ddd;" src="~/pictures/hot.png"/>
+			<p>@Html.DisplayFor(model => model.houseHeating)</p>
+		</div>
+		<div style="flex-direction: row;display: flex; margin-top:15px";display: flex; align-items: center;">
+			<img style="border: 0px solid #ddd;"src="~/pictures/cold.png"/>
+			<p>@Html.DisplayFor(model => model.houseConditioning)</p>
+		</div>
+		<div style="flex-direction: row;display: flex; margin-top:15px;display: flex; align-items: center;">
+			<img style="border: 0px solid #ddd;" src="~/pictures/garage.png"/>
+			<p>@Html.DisplayFor(model => model.houseGarage)</p>
+		</div>
+		<div style="flex-direction: row;display: flex; margin-top:15px;display: flex; align-items: center;">
+			<img style="border: 0px solid #ddd;" src="~/pictures/heart-solid-24.png"/>
+			<p>@Html.DisplayFor(model => model.houseVisitCount)</p>
+		</div>
+	</div>
+</div>

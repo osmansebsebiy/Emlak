@@ -1,0 +1,34 @@
+﻿@model EmlakProject.Models.UserModel
+
+@{
+    ViewBag.Title = "LoginSuccess";
+}
+
+<h2>LoginSuccess</h2>
+
+<div>
+    <h4>UserModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.userEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.userEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.userPassword)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.userPassword)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
