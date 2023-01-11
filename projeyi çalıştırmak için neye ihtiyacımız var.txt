@@ -1,0 +1,4 @@
+1- Microsoft Sql Server 2019
+2- Microsoft visual studio 2019
+3- Postman
+4- Internet browser
